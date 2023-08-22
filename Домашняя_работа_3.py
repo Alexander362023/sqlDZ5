@@ -82,7 +82,7 @@ with psycopg2.connect(database='DS1', user='postgres', password='sfdr34wrtyi') a
     def DS7(cur, Name, Surname, telephone, email): 
         '''Функция, позволяющая найти клиента по его данным: имени, фамилии, email или телефону.'''         
         cur.execute("SELECT Name, Surname, email, telephone FROM Client c JOIN Email e on e.email_id = c.Client \
-        JOIN Telephone t on t.telephone_id = c.Client WHERE Name=%s or Surname=%s or telephone=%s, email=%s;", (Name, Surname, telephone, email))
+        JOIN Telephone t on t.telephone_id = c.Client WHERE Name=%s or Surname=%s or telephone=%s or email=%s;", (Name, Surname, telephone, email))
        
         return cur.fetchone()
     
